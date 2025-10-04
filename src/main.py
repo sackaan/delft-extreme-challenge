@@ -10,13 +10,16 @@ model = None
 def load_model(model_name):
     global model
 
-    print(f"CUDA available: {torch.cuda.is_available()}")
-    if torch.cuda.is_available():
-        print(f"GPU: {torch.cuda.get_device_name(0)}")
-
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    if device == "cuda":
+        gpu_name = torch.cuda.get_device_name(0)
+        print(f"Loading model '{model_name}' on device: {device} ({gpu_name})")
+    else:
+        print(f"Loading model '{model_name}' on device: {device}")
+
     model = whisper.load_model(model_name, device=device)
-    print(f"Model loaded on {device}")
+    print(f"Model '{model_name}' loaded successfully")
 
 
 def validate_audio_file(file_path):
@@ -35,13 +38,8 @@ def validate_audio_file(file_path):
 
 def process_audio(file_path):
     """Process the audio file."""
-    print(f"Processing audio file: {file_path}")
-    # Add your audio processing logic here
     transcribed_text = model.transcribe(file_path)
-    print("Transcription:")
-    print(transcribed_text['text'])
-    file_size = os.path.getsize(file_path)
-    print(f"File size: {file_size / 1024:.2f} KB")
+    print("Transcription:" + transcribed_text['text'])
 
 
 def main():
@@ -55,20 +53,10 @@ def main():
         help='Path to the audio file'
     )
 
-    parser.add_argument(
-        '-v', '--verbose',
-        action='store_true',
-        help='Enable verbose output'
-    )
-
     args = parser.parse_args()
 
-    if args.verbose:
-        print(f"Verbose mode enabled")
     load_model("turbo")
     process_audio(args.audio_file)
-    print("Processing complete!")
-
 
 if __name__ == "__main__":
     main()
