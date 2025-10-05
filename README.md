@@ -9,7 +9,7 @@ For our definition of extremism, we have combined different definitions from mul
 *** 
 *Any spoken content that when taken in its immediate context and excluding neutral quotation or reporting in which the speaker explicitly:*
 - *Fosters or justifies prejudice or hostility based on inherent attributes\*;*
-- *Promotes an ideology that one group is naturally superior to another one due to inherent attributes\*;
+- *Promotes an ideology that one group is naturally superior to another one due to inherent attributes\**;
 - *Issues direct incitements and threats of violence, or advocates for or glorifies violence;*
 - *Affiliates themselves with, recruits for, shows allegiance to or shows admiration towards known extremist entities or groups;*
 - *Attempts to spread fabricated misinformation intended to provoke conflict or action in pursuit of a (socio-political) belief or interest/agenda*
