@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hate Speech Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Hate Speech Detector</h1>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'audio')" id="defaultOpen">Audio Analysis</button>
+        <button class="tablinks" onclick="openTab(event, 'text')">Text Analysis</button>
+    </div>
+
+    <div id="audio" class="tabcontent">
+        <h2>Upload Audio File</h2>
+        <input type="file" id="audioFile" accept=".mp3,.wav,.flac,.ogg,.m4a,.aac,.wma">
+        <button onclick="analyzeAudio()">Analyze Audio</button>
+        <div id="audioResult" class="result"></div>
+    </div>
+
+    <div id="text" class="tabcontent">
+        <h2>Enter or Upload Text</h2>
+        <textarea id="textInput" placeholder="Enter text here..."></textarea>
+        <input type="file" id="textFile" accept=".txt">
+        <button onclick="analyzeText()">Analyze Text</button>
+        <div id="textResult" class="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
