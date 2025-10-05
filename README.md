@@ -53,6 +53,36 @@ The way speech data is collected and used can shape how technology understands a
 - Building trust: people should be confident that the technology they use isn't biased or politically driven. We aim to make the initial labeling stage clear and fair, so that extremist views or foul language is flagged appropriately.
 - Accountability: our labeling system is meant to be open and reviewable. Responsible systems should always allow external oversight and improvement over time.
 
+## Future Improvements and Features
+
+While our current framework focuses on reliable detection through text transcription and flowchart-based reasoning, several tools and approached could further improve accuracy, context, understanding, and interpretability.
+
+Profanity Categorization 
+	We plan to integrate the Surge AI (2023) profanity dictionary, which includes over 1600 common English profanities and their variations. Rather than treating all bad words equally, we categorize each based on themes such as:
+	- Behavior
+	- Disability
+	- Gender
+	- Physical appearance
+	- Religion
+	- Sexual orientation
+	- Social class
+	This adds nuance so we can know the difference between profanity used casually and profanity that targets protected groups.
+- Topic and Context Detection
+	To capture context, we could use BERTopic, which clusters transcribed text into semantically coherent topics. This helps the system understand what the conversation is about e.g. distinguishing between someone discussing extremism and promoting it.
+	Each topic would represent a set of keywords or phrases associated with a specific theme, making it better to interpret speech segments.
+- Linguistic and Emotional Profiling
+	We could also incorporate LIWC (Linguistic Inquiry and Word Count) categories to assess the emotional and psychological tone of speech. This can provide insight into the intent behind statements. It distinguishes frustration or fear from genuine or calls or violence. 
+	Although it's a paid tool, it could help classify emotions like:
+	- Anger
+	- Fear
+	- Joy
+	- Surprise
+	- Sadness
+	- Disgust
+	- Neutral
+  
+	Detecting emotion would greatly improve the reliability of extremist speech detection.
+
 ## References
 ##### Extremism definitions
 https://link.springer.com/article/10.1007/s12652-021-03658-z
@@ -63,3 +93,8 @@ https://www.aivd.nl/onderwerpen/extremisme
 https://gdpr-info.eu/
 https://www.denederlandsegrondwet.nl/id/vgrnbj1z0qzw/artikel_7_vrijheid_van_meningsuiting
 https://fra.europa.eu/en/law-reference/european-convention-human-rights-article-10
+
+##### Tools for future improvements
+https://github.com/surge-ai/toxicity
+https://maartengr.github.io/BERTopic/index.html
+https://www.liwc.app/
